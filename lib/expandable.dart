@@ -4,6 +4,7 @@ library expandable;
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:expandable/animated_cross_fade.dart' as fork;
 
 class ExpandableThemeData {
   static final ExpandableThemeData defaults = ExpandableThemeData(
@@ -432,7 +433,7 @@ class Expandable extends StatelessWidget {
         this.controller ?? ExpandableController.of(context, required: true);
     final theme = ExpandableThemeData.withDefaults(this.theme, context);
 
-    return AnimatedCrossFade(
+    return fork.AnimatedCrossFade(
       alignment: theme.alignment!,
       firstChild: collapsed,
       secondChild: expanded,
@@ -442,8 +443,8 @@ class Expandable extends StatelessWidget {
           curve: theme.fadeCurve!),
       sizeCurve: theme.sizeCurve!,
       crossFadeState: controller?.expanded ?? true
-          ? CrossFadeState.showSecond
-          : CrossFadeState.showFirst,
+          ? fork.CrossFadeState.showSecond
+          : fork.CrossFadeState.showFirst,
       duration: theme.animationDuration!,
     );
   }
