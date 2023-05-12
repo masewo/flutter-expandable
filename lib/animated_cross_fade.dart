@@ -125,16 +125,7 @@ class AnimatedCrossFade extends StatefulWidget {
     required this.duration,
     this.reverseDuration,
     this.layoutBuilder = defaultLayoutBuilder,
-  })  : assert(firstChild != null),
-        assert(secondChild != null),
-        assert(firstCurve != null),
-        assert(secondCurve != null),
-        assert(sizeCurve != null),
-        assert(alignment != null),
-        assert(crossFadeState != null),
-        assert(duration != null),
-        assert(layoutBuilder != null),
-        super(key: key);
+  })  : super(key: key);
 
   /// The child that is visible when [crossFadeState] is
   /// [CrossFadeState.showFirst]. It fades out when transitioning
@@ -375,7 +366,6 @@ class _AnimatedCrossFadeState extends State<AnimatedCrossFade>
       duration: widget.duration,
       reverseDuration: widget.reverseDuration,
       curve: widget.sizeCurve,
-      vsync: this,
       child: widget.layoutBuilder(topChild, topKey, bottomChild, bottomKey),
     );
   }

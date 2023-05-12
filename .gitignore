@@ -36,3 +36,5 @@
 **/ios/
 
 **/web/
+
+.fvm/flutter_sdk
